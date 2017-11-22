@@ -1,0 +1,5 @@
+secrets.py
+*.py[co]
+db.sqlite3
+communities
+results.log
