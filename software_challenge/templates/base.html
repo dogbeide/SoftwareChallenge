@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="{% static 'bootstrap_4.0.0/css/bootstrap.css' %}">
+
+    <!-- Bootstrap JS-->
+    <link rel="stylesheet" href="{% static 'bootstrap_4.0.0/js/bootstrap.js' %}">
+
+    <!--Font Awesome CSS -->
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.css' %}">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'software_challenge/css/master.css' %}">
+    <link rel="stylesheet" href="{% static 'software_challenge/css/btn.css' %}">
+    <link rel="stylesheet" href="{% static 'software_challenge/css/text.css' %}">
+
+    <script src="{% static 'software_challenge/js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'software_challenge/js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'software_challenge/js/infinite.min.js' %}"></script>
+
+    {% block javascript %}
+
+    {% endblock %}
+
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-fixed-bottom mynav" id='navBar'>
+      <div class="container">
+
+      <a class='navbar-brand mynav-item mynav-item-brand' href="{% url 'index' %}" id='the-nav'> PayTM Software Challenge</a>
+
+      <button class="navbar-toggler mynav-item" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon dropdown-toggle"></span>
+        <span>Menu</span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class='nav-item nav-link mynav-item'><a href="{% url 'helloworld:index' %}">Hello-World</a></li>
+            <li class='nav-item nav-link mynav-item'><a href="{% url 'tweets:index' %}">Tweets</a></li>
+
+          {% if user.is_authenticated %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle mynav-item" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Account
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Settings</a>
+                {# <a class="dropdown-item" href="{% url 'accounts:logout' %}" >Logout</a>#}
+              </div>
+            </li>
+          {% else %}
+            {# <li class='nav-item nav-link mynav-item'><a href="{% url 'accounts:login' %}">Login</a></li>#}
+            {# <li class='nav-item nav-link mynav-item'><a href="{% url 'accounts:signup' %}">Sign Up</a></li>#}
+          {% endif %}
+
+        </ul>
+
+      </div>
+    </nav>
+
+    {% block content %}
+
+    {% endblock %}
+
+  </body>
+</html>
