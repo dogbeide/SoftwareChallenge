@@ -1,9 +1,22 @@
 # Software Developer Challenge
 
-## Challenge 1: 
+## Challenge 1:
 Read through the rest of the assignment, decide which technologies to use and explain why you chose what you chose. As a reminder we at Paytm are dealing with millions of concurrent users, just sayin’ :)
+---------------------------------------------------
+### Core Backend Framework: Django
+ - Fast initial implementation.
+ - Scalable (compared to Flask).
+ - Python is more optimized for speed (compared to R.o.R for syntactic sugar).
 
-## Challenge 2: 
+### REST interfacing: Django REST framework
+ - Supports Django's authentication system.
+ - Built-ins for fast development, open source implies consistent improvement.
+ - Supports Django's ORM for persistent storage.
+ - Supports bandwidth throttling for all clients (anonymous & authenticated) as well as in-memory storage which can throttle disk bandwidth too. Will be useful in big data web applications.
+ -
+
+
+## Challenge 2:
 Create a deployable “Hello World” Server exposing simple REST “Hello World” API. It is going to be a base for your application for this assignment.
 
 ## Challenge 3:
@@ -27,6 +40,3 @@ Let us know how we can use it. You could either provide us with a zipped file co
 
 ## Bonus (optional):
 Add an “I’m feeling lucky button” that does a random search, but make sure that same result is not returned twice or that you don’t return a page that the user already viewed. Use the user stored history to do so. Since going through the history can potentially be costly, suggest and optionally implement optimization mechanism to avoid hitting the storage every time.
-
-
-
