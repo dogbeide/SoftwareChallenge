@@ -24,10 +24,27 @@
 
   <form class="form-inline my-2 my-xs-0" action="{% url 'tweets:search' %}" method='post'>
     {% csrf_token %}
-    <input type="search" class="form-control mr-sm-2" placeholder="Search Twitter" name="usr_query" value='{{ query }}' required>
-    <button type="submit" class="btn btn-outline-primary my-2 my-sm-0">
-      <i class="fa fa-search fa-3" aria-hidden="true"></i>
-    </button>
+
+    {% if user.is_authenticated %}
+      <input type="search" class="form-control mr-sm-2" placeholder="Search Twitter" name="usr_query" value='{{ query }}' required>
+
+      <button type="submit" class="btn btn-outline-primary my-2 my-sm-0">
+        <i class="fa fa-search fa-3" aria-hidden="true"></i>
+      </button>
+
+    {% else %}
+      <input type="search" class="form-control mr-sm-2" placeholder="Search Twitter" name="usr_query" value='{{ query }}' disabled>
+
+      <a href="{% url 'accounts:login' %}"
+         class="btn btn-outline-dark btn-sm">
+          Login
+      </a>
+    <div style="margin-left:5px">
+      to search
+    </div>
+
+    {% endif %}
+
   </form>
 
   {% if tweets %}
@@ -69,7 +86,7 @@
         </div>
       {% endif %}
     </div>
-    
+
   {% endif %}
 
 </div>

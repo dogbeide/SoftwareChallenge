@@ -3,8 +3,10 @@ import requests
 import json
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+"""
+Performs a query or looks through returned results.
+"""
 def search_twitter(request):
-
 
     tweets_json = None
     tweets = []
@@ -21,7 +23,7 @@ def search_twitter(request):
                 'text': t['text'],
                 'favorites': t['user']['favourites_count'],
                 'retweets': t['retweet_count'],
-                'date': t['created_at']
+                'date': t['user']['created_at'],
             }
             tweets.append(tweet_data)
 
@@ -52,6 +54,10 @@ def search_twitter(request):
 
     return tweets
 
+
+"""
+Perform a Twitter API query.
+"""
 def get_twitter_json(request):
     # Key setup
     client_key = '1PGki11r3iVCbV4T9Pie1RWjP'
