@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from rest_framework.documentation import include_docs_urls
 from rest_framework.urlpatterns import format_suffix_patterns
+from . import views
 
 urlpatterns = [
+    url(r'^$', views.index, name='index'),
     url(r'^admin/', admin.site.urls),
+    url(r'^accounts/', include('accounts.urls')),
     url(r'^helloworld/', include('helloworld.urls')),
+    url(r'^tweets/', include('tweets.urls')),
 ]
