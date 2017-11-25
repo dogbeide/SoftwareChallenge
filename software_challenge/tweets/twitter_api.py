@@ -2,6 +2,10 @@ import base64
 import requests
 import json
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib.auth import get_user_model
+User = get_user_model()
+
+from .models import Query
 
 """
 Performs a query or looks through returned results.
@@ -33,6 +37,9 @@ def search_twitter(request):
         tweets_json_pretty = json.dumps(tweets, indent=2, separators=(',',':'))
         f.write(tweets_json_pretty)
         f.close()
+
+        q = Query.objects.create(user=request.user, data=tweets_json_pretty)
+        q.save()
 
     elif request.method == 'GET':
         f = open('tweets100.json', 'r')
