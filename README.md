@@ -11,9 +11,12 @@ Read through the rest of the assignment, decide which technologies to use and ex
 ### REST interfacing: Django REST framework
  - Supports Django's authentication system.
  - Built-ins for fast development, open source implies consistent improvement.
- - Supports Django's ORM for persistent storage.
+ - Supports Django's ORM.
  - Supports bandwidth throttling for all clients (anonymous & authenticated) as well as in-memory storage which can throttle disk bandwidth too. Will be useful in big data web applications.
- -
+
+### Database: postgreSQL
+ - Open source, continuous development & support
+ - Built to work with Django's JSONField ORM class, can store tweet JSON.
 
 
 ## Challenge 2:
