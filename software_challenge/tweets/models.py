@@ -4,8 +4,8 @@ from django.contrib.postgres.fields import JSONField
 
 # Create your models here.
 class Tweet(models.Model):
-    handle = models.CharField(max_length=128)
-    text = models.CharField(max_length=140)
+    handle = models.CharField(max_length=128, unique=True)
+    text = models.CharField(max_length=140, unique=True)
 
     def __str__(self):
         self.handle

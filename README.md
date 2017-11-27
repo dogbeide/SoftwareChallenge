@@ -17,6 +17,7 @@ Read through the rest of the assignment, decide which technologies to use and ex
 ### Database: postgreSQL
  - Open source, continuous development & support
  - Built to work with Django's JSONField ORM class, can store tweet JSON.
+ - Can be scaled to big data
 
 
 ## Challenge 2:
@@ -41,6 +42,10 @@ Test your application.
 
 ## Challenge 7:
 Let us know how we can use it. You could either provide us with a zipped file containing your solution or a link to your Github repository containing one.
+### How to use:
+1. git clone <thisrepo.git>
+2. pip install -r requirements.txt
+3. python manage.py runserver
 
 ## Bonus (optional):
 Add an “I’m feeling lucky button” that does a random search, but make sure that same result is not returned twice or that you don’t return a page that the user already viewed. Use the user stored history to do so. Since going through the history can potentially be costly, suggest and optionally implement optimization mechanism to avoid hitting the storage every time.
