@@ -10,10 +10,12 @@ class User(auth.models.AbstractUser):
 
 
 class LoginInstance(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='login_history')
+    username = models.CharField(max_length=256, unique=True, null=True)
     date = models.DateTimeField(auto_now_add=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='login_history')
 
 
 class LogoutInstance(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='logout_history')
+    username = models.CharField(max_length=256, unique=True, null=True)
     date = models.DateTimeField(auto_now_add=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='logout_history')
